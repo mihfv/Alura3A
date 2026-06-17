@@ -15,17 +15,20 @@ for (let i = 0; i < botoes.length; i++) {
 }
 
 const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2023-10-05T00:00:00");
-const tempoObjetivo2 = new Date("2023-12-05T00:00:00");
-const tempoObjetivo3 = new Date("2023-12-30T00:00:00");
-const tempoObjetivo4 = new Date("2024-02-01T00:00:00");
+
+// METAS ATUALIZADAS
+const tempoObjetivo1 = new Date("2026-11-30T00:00:00"); // vestibular
+const tempoObjetivo2 = new Date("2030-12-31T00:00:00"); // fonoaudiologia
+const tempoObjetivo3 = new Date("2027-06-15T00:00:00"); // moto
+const tempoObjetivo4 = new Date();
+tempoObjetivo4.setFullYear(tempoObjetivo4.getFullYear() + 3); // carro (3 anos)
 
 const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
-
 
 function calculaTempo(tempoObjetivo) {
     let tempoAtual = new Date();
     let tempoFinal = tempoObjetivo - tempoAtual;
+
     let segundos = Math.floor(tempoFinal / 1000);
     let minutos = Math.floor(segundos / 60);
     let horas = Math.floor(minutos / 60);
@@ -34,6 +37,7 @@ function calculaTempo(tempoObjetivo) {
     segundos %= 60;
     minutos %= 60;
     horas %= 24;
+
     if (tempoFinal > 0) {
         return [dias, horas, minutos, segundos];
     } else {
